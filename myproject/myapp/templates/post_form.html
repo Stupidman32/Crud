@@ -1,0 +1,16 @@
+<!-- templates/post_form.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create/Edit Post</title>
+</head>
+<body>
+    <h1>{{ form.instance.id|yesno:"Edit Post,Create New Post" }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+    <a href="{% url 'home' %}">Cancel</a>
+</body>
+</html>
